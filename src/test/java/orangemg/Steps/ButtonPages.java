@@ -17,6 +17,12 @@ public class ButtonPages {
 	@FindBy(how = How.XPATH, using = "//form//div//input[@value='Add']")
     private WebElement btnAdd;	
 	
+	@FindBy(how = How.ID, using = "btnSave")
+    private WebElement btnSave;		
+	
+	@FindBy(how = How.XPATH, using = "menu_leave_viewLeaveModule")
+    private WebElement btnLeave;	
+	
 	public ButtonPages(WebDriver driver) {
 		PageFactory.initElements(driver,this);
 	}
@@ -33,5 +39,14 @@ public class ButtonPages {
 	public void botonAdd() {
 		btnAdd.click();
 	}
+	
+	public void botonSave() {
+		btnSave.click();
+	}
+		
+	public void botonLeave() {
+		btnLeave.click();
+	}
+		
 	
 }

@@ -16,19 +16,24 @@ import org.openqa.selenium.OutputType;
 
 public class Questions {
 
+	private WebDriver driver;
+	
+	public Questions (WebDriver driver) {
+		this.driver = driver;
+	}
 	@Step
-	public void tituloAssert(WebDriver driver) {
+	public void tituloAssert() {
 
 		String ActualTitle = driver.getTitle();
 		Assert.assertEquals(ActualTitle, "Booking.com");
 	}
 
 	@Step
-	public void screenShot(WebDriver driver) {
+	public void screenShot() {
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		File scr = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		String filename = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-		File dest = new File("C:\\Users\\jmedina\\Documents\\Captura" + filename + ".png");
+		File dest = new File("C:\\Users\\Monica\\Documents\\Capturas" + filename + ".png");
 		try {
 			FileUtils.copyFile(scr, dest);
 		} catch (IOException e) {
